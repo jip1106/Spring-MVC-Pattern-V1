@@ -1,9 +1,11 @@
 package hello.servlet.domain.member;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 
 /**
  * HashMap 은 동시성 문제가 고려되어 있지 않기 때문에
@@ -13,6 +15,8 @@ public class MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
+
+    //싱글톤 패턴
     private static final MemberRepository instance = new MemberRepository();
 
     public static MemberRepository getInstance(){
@@ -35,7 +39,10 @@ public class MemberRepository {
     }
 
     public List<Member> findAll(){
-        return new ArrayList<>(store.values());
+
+        Collection<Member> values = store.values();
+        return new ArrayList<>(values);
+
     }
 
     public void clearStore(){

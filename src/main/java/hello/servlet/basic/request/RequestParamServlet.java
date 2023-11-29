@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 /**
+ * HTTP 요청 데이터 - GET 쿼리 파라미터
  * 1. 파라미터 전송 기능
  * http://localhost:9090/request-param?username=hello&age=20
  */

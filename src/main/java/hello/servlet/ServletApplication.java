@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
+//스프링 부트 서블릿 환경 구성 -> @ServletComponentScan
 @ServletComponentScan	//서블릿 자동 등록
 @SpringBootApplication
 public class ServletApplication {

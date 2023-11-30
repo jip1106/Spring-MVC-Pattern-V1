@@ -22,6 +22,7 @@ public class FrontControllerServletV3 extends HttpServlet {
     private Map<String, ControllerV3> controllerMap = new HashMap<>();
 
     public FrontControllerServletV3() {
+        System.out.println("start FrontControllerServletV3");
         controllerMap.put("/front-controller/v3/members/new-form", new MemberFormControllerV3());
         controllerMap.put("/front-controller/v3/members/save", new MemberSaveControllerV3());
         controllerMap.put("/front-controller/v3/members",new MemberListControllerV3());
@@ -32,6 +33,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         System.out.println("FrontControllerServletV3.service");
 
         String requestURI = request.getRequestURI();
+        System.out.println("requestURI = " + requestURI);
 
         ControllerV3 controller = controllerMap.get(requestURI);
 
@@ -60,6 +62,8 @@ public class FrontControllerServletV3 extends HttpServlet {
         Map<String, String> paramMap = new HashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
+
+        System.out.println("paramMap = " + paramMap);
         return paramMap;
     }
 }

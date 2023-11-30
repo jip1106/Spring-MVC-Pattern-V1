@@ -27,6 +27,8 @@ import java.util.Map;
 public class FrontControllerServletV5 extends HttpServlet {
 
     //private Map<String, ControllerV4> controllerMap = new HashMap<>();
+    //매핑 정보의 값 Map이 ControllerV3 , ControllerV4 같은 인터페이스에서 아무 값이나 받을 수 있는
+    //Object 로 변경
     private final Map<String, Object> handlerMappingMap = new HashMap<>();
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 

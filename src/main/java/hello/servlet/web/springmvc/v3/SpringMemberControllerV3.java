@@ -32,8 +32,21 @@ public class SpringMemberControllerV3 {
         return "save-result";
     }
 
+    @PostMapping("/save2")
+    public String save(Member member, Model model){
+        log.info("member.getUsername()" + member.getUsername());
+        log.info("member.getAge()" + member.getAge());
+        log.info("member.getId()" + member.getId());
+
+        Member saveMember = memberRepository.save(member);
+
+        model.addAttribute("member",saveMember);
+
+        return "save-result";
+    }
+
     //@RequestMapping(value = "/new-form",method = RequestMethod.GET)
-    @GetMapping("/")
+    @GetMapping("/new-form")
     public String newForm(){
 
         return "new-form";

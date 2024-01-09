@@ -12,9 +12,12 @@ import java.util.Map;
 
 @Controller
 public class SpringMemberSaveControllerV1 {
+
     private MemberRepository memberRepository = MemberRepository.getInstance();
+
     @RequestMapping("/springmvc/v1/members/save")
     public ModelAndView process(HttpServletRequest request, HttpServletResponse response) {
+
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age"));
 

@@ -19,6 +19,9 @@ public class RequestHeaderServlet extends HttpServlet {
         printHeaderUtils(request);
         printEtc(request);
 
+        response.getWriter().write("ok");
+
+
     }
     private void printStartLine(HttpServletRequest request){
         System.out.println("--- REQUEST-LINE - start ---");
@@ -41,13 +44,13 @@ public class RequestHeaderServlet extends HttpServlet {
 
     private void printHeaders(HttpServletRequest request){
         System.out.println("--- Headers - start ---");
-
+/*
         Enumeration<String> headerNames = request.getHeaderNames();
         while(headerNames.hasMoreElements()){
             String headerName = headerNames.nextElement();
             System.out.println("headerName = " + headerName);
         }
-
+ */
 
         request.getHeaderNames().asIterator()
                 .forEachRemaining(headerName -> System.out.println(headerName + ":" + request.getHeader(headerName)));
@@ -91,25 +94,19 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println("--- 기타 조회 start ---");
         System.out.println("[Remote 정보]");
 
-        System.out.println("request.getRemoteHost() = " +
-                request.getRemoteHost()); //
+        System.out.println("request.getRemoteHost() = " + request.getRemoteHost());
 
-        System.out.println("request.getRemoteAddr() = " +
-                request.getRemoteAddr()); //
+        System.out.println("request.getRemoteAddr() = " + request.getRemoteAddr());
 
-        System.out.println("request.getRemotePort() = " +
-                request.getRemotePort()); //
+        System.out.println("request.getRemotePort() = " + request.getRemotePort());
 
         System.out.println();
         System.out.println("[Local 정보]");
-        System.out.println("request.getLocalName() = " +
-                request.getLocalName()); //
+        System.out.println("request.getLocalName() = " + request.getLocalName());
 
-        System.out.println("request.getLocalAddr() = " +
-                request.getLocalAddr()); //
+        System.out.println("request.getLocalAddr() = " + request.getLocalAddr());
 
-        System.out.println("request.getLocalPort() = " +
-                request.getLocalPort()); //
+        System.out.println("request.getLocalPort() = " + request.getLocalPort());
 
         System.out.println("--- 기타 조회 end ---");
         System.out.println();

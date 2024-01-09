@@ -10,6 +10,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/*
+    HTTP 응답 메시지는 주로 다음 내용을 담아서 전달한다.
+        1. 단순 텍스트 응답
+        2. HTML 응답
+        3. HTTP API - MessageBody JSON 응답
+ */
+//1. 단순 텍스트 응답
 @WebServlet(name="responseHeaderServlet", urlPatterns = "/response-header")
 public class ResponseHeaderServlet extends HttpServlet {
     @Override
